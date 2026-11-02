@@ -1,0 +1,549 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #0B0B0D;
+    color: #F5F3EF;
+    font-family: Arial, Helvetica, sans-serif;
+    overflow-x: hidden;
+}
+
+:root {
+    --preto: #0B0B0D;
+    --carvao: #191A1F;
+    --vermelho-escuro: #741E25;
+    --vermelho: #B52B35;
+    --dourado: #C49A63;
+    --branco: #F5F3EF;
+}
+
+
+/* tela */
+
+.tela {
+    min-height: 100vh;
+    width: 100%;
+    position: relative;
+}
+
+.escondido {
+    display: none !important;
+}
+
+
+/* tela inicial */
+
+.inicio {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(11, 11, 13, 0.95) 0%,
+            rgba(11, 11, 13, 0.80) 45%,
+            rgba(11, 11, 13, 0.15) 100%
+        ),
+        url("../img/base.jfif");
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.conteudo-inicio {
+    width: 55%;
+    max-width: 750px;
+    padding: 70px;
+    animation: aparecer 1s ease;
+}
+
+.subtitulo {
+    color: var(--dourado);
+    font-size: 13px;
+    letter-spacing: 4px;
+    margin-bottom: 25px;
+}
+
+.conteudo-inicio h1 {
+    font-size: clamp(40px, 6vw, 85px);
+    font-weight: 900;
+    line-height: 1.1;
+}
+
+.conteudo-inicio h1 span {
+    color: var(--vermelho);
+}
+
+.descricao {
+    color: #D0D0D0;
+    font-size: 17px;
+    line-height: 1.8;
+    margin-top: 30px;
+    margin-bottom: 35px;
+    max-width: 500px;
+}
+
+
+/* botão principal */
+
+.botao {
+    background-color: var(--vermelho-escuro);
+    color: var(--branco);
+
+    border: 1px solid var(--vermelho);
+    padding: 18px 35px;
+
+    font-size: 14px;
+    font-weight: bold;
+    letter-spacing: 2px;
+
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.botao:hover {
+    background-color: var(--vermelho);
+    box-shadow: 0 0 20px rgba(181, 43, 53, 0.4);
+    transform: translateY(-3px);
+}
+
+.aviso {
+    color: #777;
+    font-size: 10px;
+    letter-spacing: 2px;
+    margin-top: 35px;
+}
+
+
+/* tela interrogatório */
+
+.interrogatorio {
+    background-color: var(--preto);
+    animation: aparecer 0.7s ease;
+}
+
+.cabecalho {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 25px 5%;
+    border-bottom: 1px solid #292929;
+
+    background-color: #101012;
+}
+
+.identificacao {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.icone {
+    color: var(--vermelho);
+    font-size: 35px;
+}
+
+.identificacao h2 {
+    font-size: 18px;
+    letter-spacing: 2px;
+}
+
+.identificacao p {
+    color: #888;
+    font-size: 12px;
+    margin-top: 5px;
+}
+
+.status {
+    color: #B52B35;
+    font-size: 11px;
+    letter-spacing: 2px;
+}
+
+
+/* CONTEÚDO PRINCIPAL */
+
+.conteudo-interrogatorio {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 50px;
+
+    width: 90%;
+    max-width: 1400px;
+
+    margin: 50px auto;
+}
+
+
+/* IMAGEM DO PATRICK */
+
+.imagem-interrogatorio {
+    width: 50%;
+    position: relative;
+}
+
+.imagem-interrogatorio img {
+    width: 100%;
+    height: 480px;
+
+    object-fit: cover;
+    object-position: center;
+
+    border: 1px solid #292929;
+}
+
+.legenda-imagem {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+
+    width: 100%;
+    padding: 15px;
+
+    background-color: rgba(11, 11, 13, 0.85);
+
+    color: var(--dourado);
+    font-size: 10px;
+    letter-spacing: 2px;
+}
+
+
+/* PAINEL DE PERGUNTAS */
+
+.painel-pergunta {
+    width: 50%;
+    padding: 20px;
+}
+
+.informacoes {
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+
+    color: var(--dourado);
+    font-size: 12px;
+    letter-spacing: 1px;
+}
+
+.progresso {
+    width: 100%;
+    height: 5px;
+
+    margin-top: 20px;
+    margin-bottom: 40px;
+
+    background-color: #292929;
+}
+
+#barraProgresso {
+    height: 100%;
+    width: 0%;
+
+    background-color: var(--vermelho);
+
+    transition: width 0.5s ease;
+}
+
+
+/* PERGUNTA */
+
+.area-pergunta {
+    min-height: 190px;
+    animation: aparecer 0.4s ease;
+}
+
+.categoria {
+    color: var(--vermelho);
+    font-size: 11px;
+    letter-spacing: 3px;
+    margin-bottom: 20px;
+}
+
+.area-pergunta h2 {
+    font-size: clamp(24px, 3vw, 36px);
+    line-height: 1.4;
+}
+
+
+/* BOTÕES SIM E NÃO */
+
+.botoes-resposta {
+    display: flex;
+    gap: 15px;
+    margin-top: 30px;
+}
+
+.botao-resposta {
+    width: 50%;
+    padding: 18px;
+
+    font-size: 15px;
+    font-weight: bold;
+    letter-spacing: 3px;
+
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.sim {
+    background-color: var(--vermelho-escuro);
+    border: 1px solid var(--vermelho);
+    color: var(--branco);
+}
+
+.sim:hover {
+    background-color: var(--vermelho);
+}
+
+.nao {
+    background-color: transparent;
+    border: 1px solid #555;
+    color: var(--branco);
+}
+
+.nao:hover {
+    background-color: #292929;
+    border-color: var(--dourado);
+}
+
+.rodape-pergunta {
+    color: #666;
+    font-size: 9px;
+    letter-spacing: 1px;
+    margin-top: 30px;
+}
+
+
+/* TELA DE RESULTADO */
+
+.resultado {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background-color: var(--preto);
+    animation: aparecer 1s ease;
+}
+
+
+/* IMAGEM DO VEREDITO */
+
+.imagem-resultado {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.imagem-resultado img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+    object-position: center;
+
+    animation: aparecer 1.5s ease;
+}
+
+
+/* CONTEÚDO SOBRE A IMAGEM */
+
+.conteudo-resultado {
+    position: relative;
+    z-index: 2;
+
+    width: 100%;
+    min-height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+    padding: 40px 20px;
+
+    background: linear-gradient(
+        90deg,
+        rgba(11, 11, 13, 0.96),
+        rgba(11, 11, 13, 0.80),
+        rgba(11, 11, 13, 0.50)
+    );
+}
+
+.conteudo-resultado .subtitulo {
+    font-size: 11px;
+}
+
+.status-resultado {
+    color: var(--dourado);
+    font-size: 12px;
+    letter-spacing: 4px;
+    margin-bottom: 20px;
+}
+
+.conteudo-resultado h1 {
+    font-size: clamp(40px, 7vw, 80px);
+    font-weight: 900;
+    margin-bottom: 30px;
+}
+
+.pontuacao {
+    border: 1px solid #555;
+    padding: 20px 40px;
+    margin-bottom: 30px;
+
+    background-color: rgba(11, 11, 13, 0.7);
+}
+
+.pontuacao span {
+    color: var(--vermelho);
+    font-size: 50px;
+    font-weight: bold;
+}
+
+.pontuacao p {
+    font-size: 10px;
+    letter-spacing: 2px;
+    margin-top: 8px;
+}
+
+.mensagem-resultado {
+    max-width: 650px;
+
+    color: #D0D0D0;
+    font-size: 17px;
+    line-height: 1.8;
+
+    margin-bottom: 35px;
+}
+
+
+/* ANIMAÇÕES */
+
+@keyframes aparecer {
+
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+}
+
+
+/* RESPONSIVIDADE */
+
+@media (max-width: 900px) {
+
+    .conteudo-inicio {
+        width: 75%;
+        padding: 40px;
+    }
+
+    .conteudo-interrogatorio {
+        flex-direction: column;
+        gap: 30px;
+        margin-top: 30px;
+    }
+
+    .imagem-interrogatorio {
+        width: 100%;
+    }
+
+    .imagem-interrogatorio img {
+        height: 350px;
+    }
+
+    .painel-pergunta {
+        width: 100%;
+    }
+
+}
+
+
+@media (max-width: 600px) {
+
+    .inicio {
+        background-position: 65% center;
+
+        background-image:
+            linear-gradient(
+                rgba(11, 11, 13, 0.80),
+                rgba(11, 11, 13, 0.95)
+            ),
+            url("../img/base.jfif");
+    }
+
+    .conteudo-inicio {
+        width: 100%;
+        padding: 25px;
+    }
+
+    .conteudo-inicio h1 {
+        font-size: 45px;
+    }
+
+    .descricao {
+        font-size: 14px;
+    }
+
+    .cabecalho {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 20px;
+        padding: 20px;
+    }
+
+    .status {
+        font-size: 9px;
+    }
+
+    .informacoes {
+        font-size: 10px;
+    }
+
+    .imagem-interrogatorio img {
+        height: 260px;
+    }
+
+    .conteudo-interrogatorio {
+        width: 95%;
+    }
+
+    .painel-pergunta {
+        padding: 10px;
+    }
+
+    .area-pergunta {
+        min-height: 160px;
+    }
+
+    .area-pergunta h2 {
+        font-size: 25px;
+    }
+
+    .botao-resposta {
+        padding: 15px;
+    }
+
+    .conteudo-resultado h1 {
+        font-size: 42px;
+    }
+
+    .mensagem-resultado {
+        font-size: 14px;
+    }
+
+}
